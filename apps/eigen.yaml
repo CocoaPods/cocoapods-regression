@@ -1,0 +1,12 @@
+---
+source: https://github.com/artsy/eigen.git
+build:
+# Unpin CocoaPods and whatever else
+- rm -rf Gemfile*
+- echo "gem 'xcpretty'" >Gemfile
+- bundle install
+# Select different simulator
+- sed -i '' 's/iPhone 6/iPhone 5s/' Makefile
+# Do the actual build
+- make build CIRCLE_ARTIFACTS=/tmp
+xcode: 6.3

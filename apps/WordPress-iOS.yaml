@@ -1,0 +1,4 @@
+---
+source: https://github.com/wordpress-mobile/WordPress-iOS.git
+buildsteps:
+- xcodebuild -workspace WordPress.xcworkspace -scheme WordPress -sdk iphonesimulator8.4

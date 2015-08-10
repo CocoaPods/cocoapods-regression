@@ -1,0 +1,9 @@
+Metrics/LineLength:
+  Max: 120
+Style/Documentation:
+  Enabled: false
+Style/FileName:
+  Enabled: false
+Style/SpecialGlobalVars:
+  Enabled: false
+
