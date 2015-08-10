@@ -1,0 +1,5 @@
+---
+source: https://github.com/kylef/Starship.git
+build:
+- xcodebuild -workspace Starship.xcworkspace -scheme Starship
+xcode: 6.4
