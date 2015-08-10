@@ -1,0 +1,5 @@
+---
+source: https://github.com/WhisperSystems/Signal-iOS.git
+build:
+- xcodebuild -workspace Signal.xcworkspace -scheme Signal -sdk iphonesimulator
+xcode: 6.4
