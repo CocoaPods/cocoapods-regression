@@ -1,0 +1,5 @@
+---
+source: https://github.com/contentful/image-uploader-app.git
+build:
+- make all
+xcode: 6.4
