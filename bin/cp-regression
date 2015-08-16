@@ -4,6 +4,11 @@ require 'bundler/setup'
 require 'regression'
 require 'yaml'
 
+if ENV['CP_REGRESSION'].nil?
+  $stderr.puts 'Please provide path to development CP in CP_REGRESSION env var.'
+  exit(1)
+end
+
 if ARGV[0].nil?
   puts 'Available regression tests:'
 
@@ -28,4 +33,23 @@ xcode = CocoaPods::Regression::Xcode.new(app)
 
 builder = CocoaPods::Regression::Builder.new(app)
 builder.working_directory = checkout
-builder.build(xcode)
+
+# Build using current stable CP
+unless builder.build(xcode)
+  $stderr.puts "Couldn't build using stable CP, aborting."
+  exit(3)
+end
+
+# Build by using new CP only
+unless builder.build(xcode, ENV['CP_REGRESSION'])
+  $stderr.puts "Couldn't do a clean build using development CP, aborting."
+  exit(3)
+end
+
+# Build by using stable CP, then new CP
+unless builder.build_upgrade(xcode, ENV['CP_REGRESSION'])
+  $stderr.puts "Couldn't do an upgrade build using development CP, aborting."
+  exit(3)
+end
+
+puts 'The development CP is 👍'
