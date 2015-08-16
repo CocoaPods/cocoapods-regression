@@ -11,6 +11,11 @@ module CocoaPods
       puts "Cloning #{git_url}..."
       execute("git clone #{git_url} '#{target_dir}'")
 
+      puts 'Updating submodules...'
+      Dir.chdir(target_dir) do
+        execute('git submodule update --init --recursive')
+      end
+
       target_dir
     end
 
