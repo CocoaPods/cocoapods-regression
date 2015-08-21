@@ -1,5 +1,5 @@
-require 'regression/cocoapods'
-require 'regression/xcode'
+require 'cocoapods-regression/cocoapods'
+require 'cocoapods-regression/xcode'
 
 module CocoaPods
   module Regression
