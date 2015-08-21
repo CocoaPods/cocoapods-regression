@@ -9,12 +9,7 @@ module CocoaPods
       return target_dir if Dir.exist?(target_dir)
 
       puts "Cloning #{git_url}..."
-      execute("git clone #{git_url} '#{target_dir}'")
-
-      puts 'Updating submodules...'
-      Dir.chdir(target_dir) do
-        execute('git submodule update --init --recursive')
-      end
+      execute("git clone #{git_url} --depth=1 --recursive '#{target_dir}'")
 
       target_dir
     end
