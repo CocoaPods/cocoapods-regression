@@ -20,7 +20,7 @@ module CocoaPods
     end
 
     def self.execute(command)
-      puts `#{command}`
+      puts(defined?(Bundler) ? Bundler.with_clean_env { `#{command}` } : `#{command}`)
 
       if $? != 0
         $stderr.puts "`#{command}` failed to execute."
