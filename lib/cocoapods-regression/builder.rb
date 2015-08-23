@@ -20,11 +20,11 @@ module CocoaPods
           Regression.install(pod)
           Regression.install(second_pod) unless second_pod.nil?
 
-          execute_steps
+          execute_steps(xcode)
         end
       end
 
-      def execute_steps
+      def execute_steps(xcode)
         @steps.each do |step|
           puts step
           Regression.execute("#{xcode.use} #{step}")
