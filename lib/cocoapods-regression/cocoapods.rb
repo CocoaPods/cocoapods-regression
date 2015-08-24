@@ -6,7 +6,7 @@ module CocoaPods
 
     def self.install(pod)
       puts 'Installing pods...'
-      execute("yes|BUNDLE_GEMFILE='' RUBYOPT='' #{pod} install --no-repo-update")
+      execute("yes | #{pod} install --no-repo-update")
     end
   end
 end

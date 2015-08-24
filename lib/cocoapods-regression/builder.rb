@@ -1,5 +1,5 @@
-require 'regression/cocoapods'
-require 'regression/xcode'
+require 'cocoapods-regression/cocoapods'
+require 'cocoapods-regression/xcode'
 
 module CocoaPods
   module Regression
@@ -20,10 +20,14 @@ module CocoaPods
           Regression.install(pod)
           Regression.install(second_pod) unless second_pod.nil?
 
-          @steps.each do |step|
-            puts step
-            Regression.execute("BUNDLE_GEMFILE='' #{xcode.use} #{step}")
-          end
+          execute_steps(xcode)
+        end
+      end
+
+      def execute_steps(xcode)
+        @steps.each do |step|
+          puts step
+          Regression.execute("#{xcode.use} #{step}")
         end
       end
 
