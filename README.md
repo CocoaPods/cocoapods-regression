@@ -7,7 +7,7 @@ Automation harness for CocoaPods regression tests.
 List available regression tests:
 
 ```bash
-$ bin/cp-regression 
+$ exe/cp-regression 
 Available regression tests:
 	eigen
 	WordPress-iOS
@@ -16,7 +16,7 @@ Available regression tests:
 Execute a specific regression test:
 
 ```bash
-$ bin/cp-regression eigen
+$ exe/cp-regression eigen
 [...]
 ▸ Processing Artsy-Info.plist
 ▸ Generating 'Artsy.app.dSYM'
